@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>{{song?.title}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" [activated]="showFabList">
+    <ion-fab-button>
+      <ion-icon name="create-outline"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top" [activated]="false">
+      <ion-fab-button color="light" (click)="resize($event)">
+        <ion-icon name="contract-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="resize($event)">
+        <ion-icon name="expand-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="updateTone($event, -1)">
+        <ion-icon name="arrow-down-outline"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button color="light" (click)="updateTone($event, 1)">
+        <ion-icon name="arrow-up-outline"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <ion-grid>
+    <ion-row  *ngFor="let line of song?.body">
+      <ion-col>
+        <ion-text
+          class="content-song" 
+          [class.normal] = "line.type === 'normal'" 
+          [class.chords] = "line.type === 'acorde'"
+          [class.chorus] = "line.type === 'estribillo'">
+
+          {{line.content}}
+        </ion-text>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

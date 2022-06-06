@@ -1,5 +1,5 @@
 {
-  "name": "helloworld",
+  "name": "netcazclient",
   "integrations": {
     "capacitor": {}
   },
