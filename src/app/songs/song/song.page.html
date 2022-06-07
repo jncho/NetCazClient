@@ -10,10 +10,10 @@
       <ion-icon name="create-outline"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top" [activated]="false">
-      <ion-fab-button color="light" (click)="resize($event)">
+      <ion-fab-button color="light" (click)="resize($event, -1)">
         <ion-icon name="contract-outline"></ion-icon>
       </ion-fab-button>
-      <ion-fab-button color="light" (click)="resize($event)">
+      <ion-fab-button color="light" (click)="resize($event, +1)">
         <ion-icon name="expand-outline"></ion-icon>
       </ion-fab-button>
       <ion-fab-button color="light" (click)="updateTone($event, -1)">
@@ -30,10 +30,11 @@
       <ion-col>
         <ion-text
           class="content-song" 
+          [style] = "fontSize"
           [class.normal] = "line.type === 'normal'" 
           [class.chords] = "line.type === 'acorde'"
           [class.chorus] = "line.type === 'estribillo'">
-
+          
           {{line.content}}
         </ion-text>
       </ion-col>

@@ -15,6 +15,8 @@ export class SongPage implements OnInit {
   semitones: number;
 
   showFabList = false;
+  fontSizePixel = 15;
+  fontSize = `font-size: ${this.fontSizePixel}px`;
 
   constructor(private route: ActivatedRoute,private service: NetCazLayerService) { }
 
@@ -30,8 +32,10 @@ export class SongPage implements OnInit {
     event.stopPropagation();
   }
 
-  resize(event){
+  resize(event,incrementPixel){
     event.stopPropagation();
+    this.fontSizePixel += incrementPixel;
+    this.fontSize = `font-size: ${this.fontSizePixel}px`;
   }
 
 }

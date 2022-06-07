@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-
 import { catchError } from 'rxjs/internal/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
@@ -12,7 +11,7 @@ import { Song } from './dto/Song';
 })
 export class NetCazLayerService {
 
-  endpoint = 'http://localhost:3000/';
+  endpoint = `http://${location.hostname}:3000/`;
 
   constructor(private http: HttpClient) { }
 
